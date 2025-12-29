@@ -101,7 +101,7 @@ npm install -D ts-node nodemon
 - [x] docker-compose.yml 생성
 - [x] GitHub Actions 워크플로우 생성
 - [x] GitHub Repository 생성 및 푸시 ✅ https://github.com/minjae-488/OmniSeller-Desk
-- [ ] GitHub Pages 활성화 (수동 설정 필요 - GITHUB_SETUP_GUIDE.md 참고)
+- [x] GitHub Pages 활성화 ✅ (gh CLI로 설정 완료)
 - [ ] GitHub Secrets 설정 (백엔드 배포 후)
 - [ ] 프론트엔드 프로젝트 생성
 - [ ] 백엔드 프로젝트 생성
