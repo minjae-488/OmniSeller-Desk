@@ -62,8 +62,3 @@ temp/
 
 # Docker
 docker-compose.override.yml
-
-# Agent (except rules and workflows)
-.agent/*
-!.agent/rules/
-!.agent/workflows/
