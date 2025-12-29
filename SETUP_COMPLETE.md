@@ -135,5 +135,9 @@ chore: 빌드/설정 변경
 - **TDD (테스트 주도 개발)**: UI 제외 코어 로직에 필수 적용
 - **SOLID 원칙**: 모든 코드 설계 시 준수
 
-> 상세 규칙은 `.agent/rules/` 폴더 내 `tdd.md`, `solid.md` 확
-인
+> 상세 규칙은 `.agent/rules/` 폴더 내 `tdd.md`, `solid.md` 확인
+
+## 📅 향후 개발 계획
+
+상세한 개발 작업 목록은 다음 문서를 참고하세요:
+👉 [**MVP 개발 작업 목록 (docs/MVP_TASKS.md)**](./docs/MVP_TASKS.md)
