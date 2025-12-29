@@ -1,13 +1,10 @@
 import app from './app';
-import dotenv from 'dotenv';
+import { config } from './config/config.service';
 
-// 환경변수 로드
-dotenv.config();
-
-const PORT = process.env.PORT || 4000;
+const PORT = config.port;
 
 app.listen(PORT, () => {
-    console.log(`
+  console.log(`
   ################################################
   🛡️  Server listening on port: ${PORT} 🛡️
   ################################################
