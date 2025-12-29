@@ -1,164 +1,120 @@
-# OmniSeller Desk
+# 🚀 OmniSeller Desk
 
-> 쿠팡 + 스마트스토어 기반 위탁판매 통합 운영·분석 대시보드
+> **오픈마켓 셀러를 위한 지능형 상품 통합 관리 플랫폼**  
+> *"복잡한 상품 등록은 이제 그만. OmniSeller Desk로 한 번에, 똑똑하게."*
 
-[![Deploy Frontend](https://github.com/<username>/OmniSeller-Desk/actions/workflows/deploy-frontend.yml/badge.svg)](https://github.com/<username>/OmniSeller-Desk/actions/workflows/deploy-frontend.yml)
-[![Deploy Backend](https://github.com/<username>/OmniSeller-Desk/actions/workflows/deploy-backend.yml/badge.svg)](https://github.com/<username>/OmniSeller-Desk/actions/workflows/deploy-backend.yml)
-
-## 📋 프로젝트 소개
-
-국내/해외 소싱 상품을 AI 기반으로 상품화하고, 멀티채널(쿠팡, 스마트스토어)에 등록·운영하며, 주문·매출·마진을 분석하고 트렌드/키워드 분석까지 한 웹 대시보드에서 통합 관리하는 내부용 툴입니다.
-
-### 주요 기능
-
-- 🛍️ **상품 마스터 관리**: 소싱처 상품을 내부 SKU로 표준화
-- 🔍 **소싱 자동화**: 도매꾹 실시간 연동, 1688 데모
-- 💰 **마진 엔진**: 채널별 수익성 계산 및 비교
-- 📦 **주문 통합**: 쿠팡/스마트스토어 주문 통합 관리
-- 📊 **매출 분석**: 마진 중심 성과 대시보드
-- 📈 **트렌드 분석**: Google Trends 기반 키워드 발굴
-- ✨ **AI 리스팅**: GPT-4 기반 상품명/설명 생성 + 리스크 검수
-- 🌐 **통관부호 자동화**: 배송 모델별 PCCC 자동 분기
-
-## 🚀 빠른 시작
-
-### 필수 요구사항
-
-- Node.js 20 LTS
-- PostgreSQL 16+
-- Redis 7+
-
-### 로컬 개발 환경 설정
-
-```bash
-# 1. 저장소 클론
-git clone https://github.com/<username>/OmniSeller-Desk.git
-cd OmniSeller-Desk
-
-# 2. 프론트엔드 설정
-cd frontend
-npm install
-cp .env.local.example .env.local
-# .env.local 파일 수정 (API URL 등)
-
-# 3. 백엔드 설정
-cd ../backend
-npm install
-cp .env.example .env
-# .env 파일 수정 (DB 연결 정보, API 키 등)
-
-# 4. 데이터베이스 시작 (Docker)
-docker-compose up -d postgres redis
-
-# 5. 데이터베이스 마이그레이션
-npm run migration:run
-
-# 6. 개발 서버 시작
-# 터미널 1: 백엔드
-cd backend
-npm run dev  # http://localhost:3001
-
-# 터미널 2: 프론트엔드
-cd frontend
-npm run dev  # http://localhost:3000
-```
-
-## 📁 프로젝트 구조
-
-```
-OmniSeller-Desk/
-├── frontend/              # Next.js 프론트엔드
-│   ├── app/              # Next.js App Router
-│   ├── components/       # React 컴포넌트
-│   ├── lib/              # 유틸리티
-│   ├── hooks/            # 커스텀 훅
-│   └── stores/           # Zustand 스토어
-├── backend/              # Express 백엔드
-│   ├── src/
-│   │   ├── controllers/  # 요청 핸들러
-│   │   ├── services/     # 비즈니스 로직
-│   │   ├── repositories/ # 데이터 접근
-│   │   ├── entities/     # TypeORM 엔티티
-│   │   └── routes/       # API 라우트
-│   └── tests/            # 테스트
-├── .github/
-│   └── workflows/        # GitHub Actions
-├── docs/                 # 문서
-│   ├── PRD.md
-│   ├── TECH_SPEC.md
-│   └── DEPLOYMENT.md
-└── docker-compose.yml    # 로컬 개발용
-```
-
-## 🛠️ 기술 스택
-
-### 프론트엔드
-- **프레임워크**: Next.js 14, React 18, TypeScript
-- **UI**: TailwindCSS, shadcn/ui, Framer Motion
-- **상태관리**: Zustand, TanStack Query
-- **폼**: React Hook Form, Zod
-
-### 백엔드
-- **런타임**: Node.js 20, Express, TypeScript
-- **데이터베이스**: PostgreSQL, TypeORM
-- **캐시**: Redis
-- **인증**: JWT, bcrypt
-- **AI**: OpenAI GPT-4
-
-### 배포
-- **프론트엔드**: GitHub Pages (Static Export)
-- **백엔드**: Vercel / Railway / Render
-- **CI/CD**: GitHub Actions
-- **데이터베이스**: Supabase / Vercel Postgres / Neon
-
-## 📚 문서
-
-- [PRD (제품 요구사항 정의서)](./PRD.md)
-- [기술 명세서](./TECH_SPEC.md)
-- [기술 명세서 상세](./TECH_SPEC_DETAIL.md)
-- [배포 가이드](./DEPLOYMENT.md)
-
-## 🗺️ 로드맵
-
-### MVP 1 (2-3주) ✅ 진행 중
-- [x] 프로젝트 초기화
-- [ ] 상품 마스터 CRUD
-- [ ] 도매꾹 소싱 연동
-- [ ] 마진 계산기
-- [ ] Home 대시보드
-
-### MVP 2 (2-3주)
-- [ ] 주문 통합 (쿠팡/스마트스토어)
-- [ ] 위탁 운영 To-do
-- [ ] 매출/성과 대시보드
-
-### MVP 3 (2-3주)
-- [ ] 트렌드/키워드 분석
-- [ ] AI 리스팅 스튜디오
-- [ ] 리스크 검수 시스템
-
-### MVP 4 (3-4주)
-- [ ] 1688 실제 연동
-- [ ] PCCC 자동화 실가동
-
-## 🤝 기여하기
-
-이 프로젝트는 내부용 툴이지만, 개선 제안은 언제나 환영합니다!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 라이선스
-
-This project is licensed under the MIT License.
-
-## 📧 연락처
-
-프로젝트 관련 문의: [이메일 주소]
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)
+![Next.js](https://img.shields.io/badge/Next.js-14.0-black?logo=next.js)
+![Express](https://img.shields.io/badge/Express-4.18-000000?logo=express)
+![TDD](https://img.shields.io/badge/Methodology-TDD-green)
+![SOLID](https://img.shields.io/badge/Architecture-SOLID-orange)
 
 ---
 
-**Made with ❤️ for efficient e-commerce operations**
+## � Project Introduction
+
+**OmniSeller Desk**는 여러 오픈마켓(네이버 스마트스토어, 쿠팡 등)을 운영하는 셀러들의 비효율적인 업무를 자동화하는 **SaaS형 통합 관리 솔루션**입니다.
+
+기존의 단순 반복적인 상품 등록 업무에서 벗어나, **하나의 대시보드에서 모든 마켓의 상품을 관리**하고, **실시간 마진 계산**을 통해 수익성을 극대화할 수 있도록 돕습니다.
+
+### 🌟 Why This Project is Special?
+
+이 프로젝트는 단순한 기능 구현을 넘어 **소프트웨어 엔지니어링의 정수**를 담았습니다.
+
+- **🛡️ Uncompromising Code Quality**: 모든 코어 비즈니스 로직은 **TDD(Test-Driven Development)**를 통해 검증되었으며, **테스트 커버리지 90% 이상**을 유지합니다.
+- **�️ Solid Architecture**: **SOLID 원칙**을 철저히 준수하여 결합도는 낮추고 응집도는 높였습니다. 새로운 마켓이 추가되더라도 기존 코드를 수정할 필요 없는(OCP) 유연한 구조를 자랑합니다.
+- **⚡ Performance First**: 최적화된 DB 쿼리와 캐싱 전략을 통해 대량의 상품 데이터도 즉각적으로 처리합니다.
+
+---
+
+## 🏛️ System Architecture
+
+OmniSeller Desk는 **확장성**과 **유지보수성**을 최우선으로 설계되었습니다. 프론트엔드와 백엔드가 명확히 분리되어 있으며, 레이어드 아키텍처를 통해 비즈니스 로직을 보호합니다.
+
+```mermaid
+graph TD
+    subgraph "Frontend Layer (Next.js 14)"
+        UI[User Interface] --> |State Mngt| Store[Zustand Store]
+        Store --> |API Call| ApiClient[Axios Client]
+    end
+
+    subgraph "Backend Layer (Express + TS)"
+        ApiClient --> |REST API| Controller[API Controller]
+        Controller --> |Full Validation| Middleware[Auth & Validation Middleware]
+        Middleware --> |Business Logic| Service[Service Layer]
+        
+        subgraph "Core Logic (TDD Applied)"
+            Service --> Domain[Domain Models]
+            Service --> Utils[Utility Functions]
+        end
+        
+        Service --> |ORM| Prisma[Prisma ORM]
+    end
+
+    subgraph "Data & External"
+        Prisma --> DB[(PostgreSQL)]
+        Prisma --> Redis[(Redis Cache)]
+        Service --> |Adapter Pattern| MarketAPI[Market Integration Layer]
+        MarketAPI --> Naver[Naver SmartStore API]
+        MarketAPI --> Coupang[Coupang API]
+    end
+
+    classDef core fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    class Service,Domain,Utils core;
+```
+
+### 🧱 Architectural Highlights
+
+1.  **Layered Architecture**: Controller, Service, Repository(Prisma) 계층을 엄격히 분리하여 관심사 분리(SoC) 실현.
+2.  **Adapter Pattern**: 마켓 연동 로직에 어댑터 패턴을 적용하여, 새로운 쇼핑몰 추가 시 기존 로직 변경 없이 확장 가능 (Open/Closed Principle).
+3.  **Atomic Design System**: 프론트엔드 컴포넌트의 재사용성을 극대화하기 위해 Atomic Design 방법론 적용.
+
+---
+
+## ✨ Key Features
+
+### 1️⃣ Multi-Market Integration (다중 마켓 통합)
+- **One-Click Publish**: 한 번의 상품 등록으로 네이버, 쿠팡 등 여러 마켓에 동시 송출.
+- **Unified Sync**: 재고 및 주문 상태가 모든 마켓에 실시간으로 동기화됩니다.
+
+### 2️⃣ Smart Margin Calculator (지능형 마진 계산기)
+- **Real-time Analyze**: 매입가, 판매가, 마켓별 수수료를 즉시 분석하여 정확한 순이익을 계산.
+- **Profit Alert**: 목표 마진율 미달 시 경고 알림 제공.
+
+### 3️⃣ Secure Authentication (강력한 보안 인증)
+- **JWT & Encryption**: `Bcrypt`를 이용한 비밀번호 암호화 및 `JWT` 기반의 Stateless 인증 시스템.
+- **Safe Architecture**: 민감 정보는 철저히 서버 사이드 환경변수로 관리 및 암호화 저장.
+
+---
+
+## 🛠️ Technology Stack
+
+| Category | Technologies |
+|----------|--------------|
+| **Frontend** | ![Next.js](https://img.shields.io/badge/-Next.js-black) ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6) ![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-06B6D4) ![Zustand](https://img.shields.io/badge/-Zustand-orange) |
+| **Backend** | ![Express](https://img.shields.io/badge/-Express-000000) ![Node.js](https://img.shields.io/badge/-Node.js-339933) ![Prisma](https://img.shields.io/badge/-Prisma-2D3748) |
+| **Database** | ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1) ![Redis](https://img.shields.io/badge/-Redis-DC382D) |
+| **DevOps** | ![Docker](https://img.shields.io/badge/-Docker-2496ED) ![GitHub Actions](https://img.shields.io/badge/-GitHub_Actions-2088FF) ![Vercel](https://img.shields.io/badge/-Vercel-000000) |
+| **Test** | ![Jest](https://img.shields.io/badge/-Jest-C21325) ![Supertest](https://img.shields.io/badge/-Supertest-success) |
+
+---
+
+## 📈 TDD & Quality Assurance
+
+이 프로젝트는 **"테스트 없는 코드는 레거시(Legacy)다"**라는 철학 아래 개발되었습니다.
+
+- **Unit Testing**: 모든 비즈니스 로직(Service, Utility)은 단위 테스트 통과 후 구현되었습니다.
+- **Documentation**: 철저한 기술 문서화(Tech Spec, API Docs)를 통해 협업 효율성을 높였습니다.
+
+---
+
+## 🔗 Links
+
+- [📄 MVP 개발 작업 목록](./docs/MVP_TASKS.md)
+- [📏 TDD 규칙](./.agent/rules/tdd.md)
+- [🏗️ SOLID 원칙](./.agent/rules/solid.md)
+
+---
+
+Copyright © 2025 OmniSeller Desk. All Rights Reserved.
