@@ -1,4 +1,4 @@
-import { PrismaClient } from '../../generated/prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { config } from '../../config/config.service';
 import logger from '../../utils/logger';
 
@@ -7,12 +7,8 @@ export class PrismaService {
     public readonly client: PrismaClient;
 
     private constructor() {
+        // 런타임 에러 방지를 위해 생성자 옵션을 제거하고 기본값(환경변수 DATABASE_URL) 사용
         this.client = new PrismaClient({
-            datasources: {
-                db: {
-                    url: config.databaseUrl,
-                },
-            },
             log: config.isProduction ? ['error'] : ['query', 'info', 'warn', 'error'],
         } as any);
     }

@@ -1,0 +1,398 @@
+﻿[dotenv@17.2.3] injecting env (7) from .env -- tip: ?뵎 add access controls to secrets: https://dotenvx.com/ops
+node.exe : C:\Users\USER\De
+sktop\李쎌뾽\OmniSeller-Desk\b
+ackend\src\generated\prisma
+\runtime\client.js:70
+위치 줄:1 문자:1
++ & "C:\Program Files\nodej
+s/node.exe" "C:\Program Fil
+es\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (C:\  
+  Users\USER\D...me\clie   
+ nt.js:70:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+Read more at https://pris.l
+y/d/client-constructor`),th
+is.name="PrismaClientConstr
+uctorValidationError"}get[S
+ymbol.toStringTag](){return
+"PrismaClientConstructorVal
+idationError"}};at(v,"Prism
+aClientConstructorValidatio
+nError");var rl=["errorForm
+at","adapter","accelerateUr
+l","log","transactionOption
+s","omit","comments","__int
+ernal"],nl=["pretty","color
+less","minimal"],il=["info"
+,"query","warn","error"],Rd
+={adapter:()=>{},accelerate
+Url:e=>{if(e!==void 0){if(t
+ypeof e!="string")throw new
+ v(`Invalid value ${JSON.st
+ringify(e)} for "accelerate
+Url" provided to PrismaClie
+nt constructor.`);if(e.trim
+().length===0)throw new v('
+"accelerateUrl" provided to
+ PrismaClient constructor m
+ust be a non-empty string.'
+)}},errorFormat:e=>{if(e){i
+f(typeof e!="string")throw 
+new v(`Invalid value ${JSON
+.stringify(e)} for "errorFo
+rmat" provided to PrismaCli
+ent constructor.`);if(!nl.i
+ncludes(e)){let t=Nt(e,nl);
+throw new v(`Invalid errorF
+ormat ${e} provided to Pris
+maClient constructor.${t}`)
+}}},log:e=>{if(!e)return;if
+(!Array.isArray(e))throw ne
+w v(`Invalid value ${JSON.s
+tringify(e)} for "log" prov
+ided to PrismaClient constr
+uctor.`);function t(r){if(t
+ypeof r=="string"&&!il.incl
+udes(r)){let n=Nt(r,il);thr
+ow new v(`Invalid log level
+ "${r}" provided to PrismaC
+lient constructor.${n}`)}}f
+or(let r of e){t(r);let n={
+level:t,emit:i=>{let o=["st
+dout","event"];if(!o.includ
+es(i)){let s=Nt(i,o);throw 
+new v(`Invalid value ${JSON
+.stringify(i)} for "emit" i
+n logLevel provided to Pris
+maClient constructor.${s}`)
+}}};if(r&&typeof r=="object
+")for(let[i,o]of Object.ent
+ries(r))if(n[i])n[i](o);els
+e throw new v(`Invalid prop
+erty ${i} for "log" provide
+d to PrismaClient construct
+or`)}},transactionOptions:e
+=>{if(!e)return;let t=e.max
+Wait;if(t!=null&&t<=0)throw
+ new v(`Invalid value ${t} 
+for maxWait in "transaction
+Options" provided to Prisma
+Client constructor. maxWait
+ needs to be greater than 0
+`);let r=e.timeout;if(r!=nu
+ll&&r<=0)throw new v(`Inval
+id value ${r} for timeout i
+n "transactionOptions" prov
+ided to PrismaClient constr
+uctor. timeout needs to be 
+greater than 0`)},omit:(e,t
+)=>{if(typeof e!="object")t
+hrow new v('"omit" option i
+s expected to be an object.
+');if(e===null)throw new v(
+'"omit" option can not be `
+null`');let r=[];for(let[n,
+i]of Object.entries(e)){let
+ o=Id(n,t.runtimeDataModel)
+;if(!o){r.push({kind:"Unkno
+wnModel",modelKey:n});conti
+nue}for(let[s,a]of Object.e
+ntries(i)){let l=o.fields.f
+ind(c=>c.name===s);if(!l){r
+.push({kind:"UnknownField",
+modelKey:n,fieldName:s});co
+ntinue}if(l.relationName){r
+.push({kind:"RelationInOmit
+",modelKey:n,fieldName:s});
+continue}typeof a!="boolean
+"&&r.push({kind:"InvalidFie
+ldValue",modelKey:n,fieldNa
+me:s})}}if(r.length>0)throw
+ new v(Fd(e,r))},comments:e
+=>{if(e!==void 0){if(!Array
+.isArray(e))throw new v(`In
+valid value ${JSON.stringif
+y(e)} for "comments" provid
+ed to PrismaClient construc
+tor. Expected an array of S
+QL commenter plugins.`);for
+(let t=0;t<e.length;t++)if(
+typeof e[t]!="function")thr
+ow new v(`Invalid value at 
+index ${t} for "comments" p
+rovided to PrismaClient con
+structor. Each plugin must 
+be a function.`)}},__intern
+al:e=>{if(!e)return;let t=[
+"debug","engine","configOve
+rride"];if(typeof e!="objec
+t")throw new v(`Invalid val
+ue ${JSON.stringify(e)} for
+ "__internal" to PrismaClie
+nt constructor`);for(let[r]
+of Object.entries(e))if(!t.
+includes(r)){let n=Nt(r,t);
+throw new v(`Invalid proper
+ty ${JSON.stringify(r)} for
+ "__internal" provided to P
+rismaClient constructor.${n
+}`)}}};function kd(e){let t
+=e.adapter!==void 0,r=e.acc
+elerateUrl!==void 0;if(t&&r
+)throw new v('The "adapter"
+ and "accelerateUrl" option
+s are mutually exclusive. P
+lease provide only one of t
+hem.');if(!t&&!r)throw new 
+v('Using engine type "clien
+t" requires either "adapter
+" or "accelerateUrl" to be 
+provided to PrismaClient co
+nstructor.')}function al(e,
+t){for(let[r,n]of Object.en
+tries(e)){if(!rl.includes(r
+)){let i=Nt(r,rl);throw new
+ v(`Unknown property ${r} p
+rovided to PrismaClient con
+structor.${i}`)}Rd[r](n,t)}
+kd(e)}function Nt(e,t){if(t
+.length===0||typeof e!="str
+ing")return"";let r=Od(e,t)
+;return r?` Did you mean "$
+{r}"?`:""}function Od(e,t){
+if(t.length===0)return null
+;let r=t.map(i=>({value:i,d
+istance:(0,sl.default)(e,i)
+}));r.sort((i,o)=>i.distanc
+e<o.distance?-1:1);let n=r[
+0];return n.distance<3?n.va
+lue:null}function Id(e,t){r
+eturn ol(t.models,e)??ol(t.
+types,e)}function ol(e,t){l
+et r=Object.keys(e).find(n=
+>ie(n)===t);if(r)return e[r
+]}function Fd(e,t){let r=Ne
+(e);for(let o of t)switch(o
+.kind){case"UnknownModel":r
+.arguments.getField(o.model
+Key)?.markAsError(),r.addEr
+rorMessage(()=>`Unknown mod
+el name: ${o.modelKey}.`);b
+reak;case"UnknownField":r.a
+rguments.getDeepField([o.mo
+delKey,o.fieldName])?.markA
+sError(),r.addErrorMessage(
+()=>`Model "${o.modelKey}" 
+does not have a field named
+ "${o.fieldName}".`);break;
+case"RelationInOmit":r.argu
+ments.getDeepField([o.model
+Key,o.fieldName])?.markAsEr
+ror(),r.addErrorMessage(()=
+>'Relations are already exc
+luded by default and can no
+t be specified in "omit".')
+;break;case"InvalidFieldVal
+ue":r.arguments.getDeepFiel
+dValue([o.modelKey,o.fieldN
+ame])?.markAsError(),r.addE
+rrorMessage(()=>"Omit field
+ option value must be a boo
+lean.");break}let{message:n
+,args:i}=er(r,"colorless");
+return`Error validating "om
+it" option:
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                       ^
+PrismaClientConstructorVali
+dationError: Using engine t
+ype "client" requires eithe
+r "adapter" or "accelerateU
+rl" to be provided to Prism
+aClient constructor.
+Read more at https://pris.l
+y/d/client-constructor
+    at kd (C:\Users\USER\De
+sktop\李쎌뾽\OmniSeller-Desk\b
+ackend\src\generated\prisma
+\runtime\client.js:70:3615)
+    at al (C:\Users\USER\De
+sktop\李쎌뾽\OmniSeller-Desk\b
+ackend\src\generated\prisma
+\runtime\client.js:70:3916)
+    at new t (C:\Users\USER
+\Desktop\李쎌뾽\OmniSeller-Des
+k\backend\src\generated\pri
+sma\runtime\client.js:74:12
+41)
+    at new PrismaService (C
+:\Users\USER\Desktop\李쎌뾽\Om
+niSeller-Desk\backend\src\c
+ore\services\prisma.service
+.ts:11:23)
+    at PrismaService.getIns
+tance (C:\Users\USER\Deskto
+p\李쎌뾽\OmniSeller-Desk\backe
+nd\src\core\services\prisma
+.service.ts:18:38)
+    at Object.<anonymous> (
+C:\Users\USER\Desktop\李쎌뾽\O
+mniSeller-Desk\backend\src\
+core\services\prisma.servic
+e.ts:39:44)
+    at Module._compile (nod
+e:internal/modules/cjs/load
+er:1761:14)
+    at Module.m._compile (C
+:\Users\USER\Desktop\李쎌뾽\Om
+niSeller-Desk\backend\node_
+modules\ts-node\src\index.t
+s:1618:23)
+    at node:internal/module
+s/cjs/loader:1893:10
+    at Object.require.exten
+sions.<computed> [as .ts] (
+C:\Users\USER\Desktop\李쎌뾽\O
+mniSeller-Desk\backend\node
+_modules\ts-node\src\index.
+ts:1621:12)

@@ -23,6 +23,11 @@ app.get('/', (_req: Request, res: Response) => {
     });
 });
 
+// Routes
+import { AuthRoute } from './modules/auth/auth.route';
+const authRoute = new AuthRoute();
+app.use('/', authRoute.router);
+
 // 404 처리 (존재하지 않는 라우트)
 app.use((_req: Request, _res: Response, next: NextFunction) => {
     next(new HttpException(404, 'Endpoint Not Found'));

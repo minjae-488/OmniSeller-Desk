@@ -1,0 +1,83 @@
+﻿[dotenv@17.2.3] injecting env (7) from .env -- tip: ?뱻 add observability to secrets: https://dotenvx.com/ops
+node.exe : C:\Users\USER\De
+sktop\李쎌뾽\OmniSeller-Desk\b
+ackend\node_modules\@prisma
+\client\src\runtime\utils\v
+alidatePrismaClientOptions.
+ts:229
+위치 줄:1 문자:1
++ & "C:\Program Files\nodej
+s/node.exe" "C:\Program Fil
+es\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (C:\  
+  Users\USER\D...tOption   
+ s.ts:229:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+    throw new PrismaClientC
+onstructorValidationError(
+          ^
+PrismaClientConstructorVali
+dationError: Using engine t
+ype "client" requires eithe
+r "adapter" or "accelerateU
+rl" to be provided to Prism
+aClient constructor.
+Read more at https://pris.l
+y/d/client-constructor
+    at validateDependentOpt
+ions (C:\Users\USER\Desktop
+\李쎌뾽\OmniSeller-Desk\backen
+d\node_modules\@prisma\clie
+nt\src\runtime\utils\valida
+tePrismaClientOptions.ts:22
+9:11)
+    at validatePrismaClient
+Options (C:\Users\USER\Desk
+top\李쎌뾽\OmniSeller-Desk\bac
+kend\node_modules\@prisma\c
+lient\src\runtime\utils\val
+idatePrismaClientOptions.ts
+:246:3)
+    at new t (C:\Users\USER
+\Desktop\李쎌뾽\OmniSeller-Des
+k\backend\node_modules\@pri
+sma\client\src\runtime\getP
+rismaClient.ts:281:7)
+    at new PrismaService (C
+:\Users\USER\Desktop\李쎌뾽\Om
+niSeller-Desk\backend\src\c
+ore\services\prisma.service
+.ts:11:23)
+    at PrismaService.getIns
+tance (C:\Users\USER\Deskto
+p\李쎌뾽\OmniSeller-Desk\backe
+nd\src\core\services\prisma
+.service.ts:18:38)
+    at Object.<anonymous> (
+C:\Users\USER\Desktop\李쎌뾽\O
+mniSeller-Desk\backend\src\
+core\services\prisma.servic
+e.ts:39:44)
+    at Module._compile (nod
+e:internal/modules/cjs/load
+er:1761:14)
+    at Module.m._compile (C
+:\Users\USER\Desktop\李쎌뾽\Om
+niSeller-Desk\backend\node_
+modules\ts-node\src\index.t
+s:1618:23)
+    at node:internal/module
+s/cjs/loader:1893:10
+    at Object.require.exten
+sions.<computed> [as .ts] (
+C:\Users\USER\Desktop\李쎌뾽\O
+mniSeller-Desk\backend\node
+_modules\ts-node\src\index.
+ts:1621:12)
