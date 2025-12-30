@@ -26,3 +26,13 @@ Thumbs.db
 # Test coverage
 coverage/
 .nyc_output/
+
+/src/generated/prisma
+
+/src/generated/prisma
+
+/src/generated/prisma
+
+/src/generated/prisma
+
+src/generated/
