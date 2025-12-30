@@ -10,13 +10,13 @@ services:
       POSTGRES_USER: omniseller
       POSTGRES_PASSWORD: omniseller_dev_password
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - omniseller-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U omniseller"]
+      test: [ "CMD-SHELL", "pg_isready -U omniseller" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -26,13 +26,13 @@ services:
     image: redis:7-alpine
     container_name: omniseller-redis
     ports:
-      - "6379:6379"
+      - "6380:6379"
     volumes:
       - redis_data:/data
     networks:
       - omniseller-network
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: [ "CMD", "redis-cli", "ping" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -40,6 +40,7 @@ services:
 volumes:
   postgres_data:
   redis_data:
+
 
 networks:
   omniseller-network:
