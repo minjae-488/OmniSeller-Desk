@@ -1,0 +1,125 @@
+﻿
+> backend@1.0.0 test
+> jest
+
+  console.log
+    [dotenv@17.2.3] injecting env (0) from .env -- tip: ?숋툘  suppress all logs with { quiet: true }
+
+      at _log (node_modules/dotenv/lib/main.js:142:11)
+
+  console.log
+    [dotenv@17.2.3] injecting env (0) from .env -- tip: ?뱻 add observability to secrets: https://dotenvx.com/ops
+
+      at _log (node_modules/dotenv/lib/main.js:142:11)
+
+node.exe : FAIL src/modules
+/auth/auth.integration.test
+.ts
+위치 줄:1 문자:1
++ & "C:\Program Files\nodej
+s/node.exe" "C:\Program Fil
+es\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (FAI  
+  L src/module...gration   
+ .test.ts:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+  ??Test suite failed to ru
+n
+
+    PrismaClientConstructor
+ValidationError: Using engi
+ne type "client" requires e
+ither "adapter" or "acceler
+ateUrl" to be provided to P
+rismaClient constructor.
+    Read more at https://pr
+is.ly/d/client-constructor
+
+    [0m [90m  9 |[39m   
+  [36mprivate[39m constru
+ctor() {
+     [90m 10 |[39m       
+  [90m// ?고????먮윭 諛⑹?瑜??꾪빐
+ ?앹꽦???듭뀡???쒓굅?섍퀬 湲곕낯媛??섍꼍蹂
+??DATABASE_URL) ?ъ슜[39m
+    [31m[1m>[22m[39m[9
+0m 11 |[39m         [36mt
+his[39m[33m.[39mclient 
+[33m=[39m [36mnew[39m [
+33mPrismaClient[39m({
+     [90m    |[39m       
+                [31m[1m^
+[22m[39m
+     [90m 12 |[39m       
+      log[33m:[39m config
+[33m.[39misProduction [3
+3m?[39m [[32m'error'[39m
+] [33m:[39m [[32m'query'
+[39m[33m,[39m [32m'info
+'[39m[33m,[39m [32m'war
+n'[39m[33m,[39m [32m'er
+ror'[39m][33m,[39m
+     [90m 13 |[39m       
+  } [36mas[39m any)[33m;
+[39m
+     [90m 14 |[39m     }
+[0m
+
+      at kd (node_modules/.
+prisma/client/runtime/clien
+t.js:70:3615)
+      at al (node_modules/.
+prisma/client/runtime/clien
+t.js:70:3916)
+      at new t (node_module
+s/.prisma/client/runtime/cl
+ient.js:74:1241)
+      at new PrismaService 
+(src/core/services/prisma.s
+ervice.ts:11:23)
+      at PrismaService.getI
+nstance (src/core/services/
+prisma.service.ts:18:38)
+      at Object.<anonymous>
+ (src/core/services/prisma.
+service.ts:39:44)
+      at Object.<anonymous>
+ (src/modules/auth/auth.ser
+vice.ts:3:1)
+      at Object.<anonymous>
+ (src/modules/auth/auth.int
+egration.test.ts:1:1)
+
+PASS src/core/services/auth
+.service.test.ts
+  AuthService
+    Password Hashing
+      ??should hash a passw
+ord (125 ms)
+      ??should compare a co
+rrect password (103 ms)
+      ??should fail compari
+ng an incorrect password (1
+29 ms)
+    JWT Management
+      ??should generate a t
+oken (5 ms)
+      ??should verify a val
+id token (2 ms)
+      ??should throw error 
+for invalid token (10 ms)
+
+Test Suites: 1 failed, 1 pa
+ssed, 2 total
+Tests:       6 passed, 6 to
+tal
+Snapshots:   0 total
+Time:        4.339 s
+Ran all test suites.
