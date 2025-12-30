@@ -25,8 +25,13 @@ app.get('/', (_req: Request, res: Response) => {
 
 // Routes
 import { AuthRoute } from './modules/auth/auth.route';
+import { UserRoute } from './modules/user/user.route';
+
 const authRoute = new AuthRoute();
+const userRoute = new UserRoute();
+
 app.use('/', authRoute.router);
+app.use('/', userRoute.router);
 
 // 404 처리 (존재하지 않는 라우트)
 app.use((_req: Request, _res: Response, next: NextFunction) => {
