@@ -1,0 +1,350 @@
+﻿build-and-test	UNKNOWN STEP	癤?025-12-30T12:05:20.3664521Z Current runner version: '2.330.0'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3697140Z ##[group]Runner Image Provisioner
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3699074Z Hosted Compute Agent
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3699901Z Version: 20251211.462
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3701042Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3702246Z Build Date: 2025-12-11T16:28:49Z
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3703332Z Worker ID: {dc66c994-6425-443c-ab7e-25c3eb685764}
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3704527Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3705411Z ##[group]Operating System
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3706355Z Ubuntu
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3707190Z 24.04.3
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3708176Z LTS
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3708863Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3709765Z ##[group]Runner Image
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3710621Z Image: ubuntu-24.04
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3711473Z Version: 20251215.174.1
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3713364Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251215.174/images/ubuntu/Ubuntu2404-Readme.md
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3715960Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251215.174
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3718012Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3719789Z ##[group]GITHUB_TOKEN Permissions
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3722964Z Contents: read
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3723931Z Metadata: read
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3724772Z Packages: read
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3725844Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3728773Z Secret source: Actions
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.3729784Z Prepare workflow directory
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.4331647Z Prepare all required actions
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.4386531Z Getting action download info
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.7106992Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.8082340Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:20.9932744Z Complete job name: build-and-test
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.0411059Z ##[group]Checking docker version
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.0424134Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1277749Z '1.48'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1290336Z Docker daemon API version: '1.48'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1291082Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1451505Z '1.48'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1465112Z Docker client API version: '1.48'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1471413Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1474417Z ##[group]Clean up resources from previous jobs
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1480318Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=66fcc6"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1629177Z ##[command]/usr/bin/docker network prune --force --filter "label=66fcc6"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1755947Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1756438Z ##[group]Create local container network
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.1766559Z ##[command]/usr/bin/docker network create --label 66fcc6 github_network_1715fd9fea4b499691ae56f0eaab5b1b
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.2268209Z 98c04adbf2c2f91eef528d8b803aad986a957d344f90bd345b7c82073a8fb5f2
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.2286201Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.2310652Z ##[group]Starting postgres service container
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.2331139Z ##[command]/usr/bin/docker pull postgres:15
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.4950249Z 15: Pulling from library/postgres
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5629773Z 02d7611c4eae: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5630686Z 8bf68bfba782: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5631500Z 4d09bd18eb08: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5632266Z 195bac0eec0b: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5633022Z 3e9511a7a37c: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5633763Z 337afc0e3ee1: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5634492Z 2ef543c8a7a9: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5635310Z fc86d799acdf: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5636155Z 50bc2bb369ad: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5636808Z 3b21acdfee67: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5637653Z 2425bc244d6d: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5638237Z 3c94e34c053e: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5638768Z 996cd48d977c: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5639258Z 3e9511a7a37c: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5640009Z e0109bec1be4: Pulling fs layer
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5640500Z 337afc0e3ee1: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5640949Z 2425bc244d6d: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5641401Z 2ef543c8a7a9: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5641829Z fc86d799acdf: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5642275Z 3c94e34c053e: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5642713Z 50bc2bb369ad: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5643155Z 996cd48d977c: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5643588Z 3b21acdfee67: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5644029Z e0109bec1be4: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.5644487Z 195bac0eec0b: Waiting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.6436871Z 8bf68bfba782: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.6438082Z 8bf68bfba782: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.6835131Z 4d09bd18eb08: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.6836613Z 4d09bd18eb08: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.7359798Z 195bac0eec0b: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.7360839Z 195bac0eec0b: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.8490408Z 3e9511a7a37c: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.8491455Z 3e9511a7a37c: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.8717192Z 337afc0e3ee1: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.8719241Z 337afc0e3ee1: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.9322994Z 2ef543c8a7a9: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.9325382Z 2ef543c8a7a9: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.9500406Z fc86d799acdf: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:21.9501985Z fc86d799acdf: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.0361412Z 3b21acdfee67: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.0554101Z 02d7611c4eae: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.0556850Z 02d7611c4eae: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.1146467Z 2425bc244d6d: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.1275182Z 3c94e34c053e: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.1277077Z 3c94e34c053e: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.1966699Z 996cd48d977c: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.1970482Z 996cd48d977c: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.2042541Z e0109bec1be4: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.2043495Z e0109bec1be4: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.7686221Z 50bc2bb369ad: Verifying Checksum
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:22.7687204Z 50bc2bb369ad: Download complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:23.0727959Z 02d7611c4eae: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:23.3432551Z 8bf68bfba782: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:23.5210005Z 4d09bd18eb08: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:23.5624793Z 195bac0eec0b: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:23.8698043Z 3e9511a7a37c: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:23.9581116Z 337afc0e3ee1: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:23.9680887Z 2ef543c8a7a9: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:23.9820232Z fc86d799acdf: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.8468471Z 50bc2bb369ad: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.8671689Z 3b21acdfee67: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.8786868Z 2425bc244d6d: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.8901193Z 3c94e34c053e: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.9005825Z 996cd48d977c: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.9100098Z e0109bec1be4: Pull complete
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.9140233Z Digest: sha256:9023e10449fd523d8a08922571cf1656c48f33dfa1f5841a33afe6363389b3cd
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.9156022Z Status: Downloaded newer image for postgres:15
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.9166344Z docker.io/library/postgres:15
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.9226788Z ##[command]/usr/bin/docker create --name 1936975cda2a4198815354e4113a992b_postgres15_f65017 --label 66fcc6 --network github_network_1715fd9fea4b499691ae56f0eaab5b1b --network-alias postgres -p 5432:5432 --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5 -e "POSTGRES_USER=omniseller" -e "POSTGRES_PASSWORD=test_password" -e "POSTGRES_DB=omniseller_test" -e GITHUB_ACTIONS=true -e CI=true postgres:15
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.9466276Z be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:26.9490205Z ##[command]/usr/bin/docker start be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.1517112Z be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.1540491Z ##[command]/usr/bin/docker ps --all --filter id=be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.1666935Z be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130 Up Less than a second (health: starting)
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.1693539Z ##[command]/usr/bin/docker port be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.1822805Z 5432/tcp -> 0.0.0.0:5432
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.1823303Z 5432/tcp -> [::]:5432
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.1871267Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.1879633Z ##[group]Waiting for all services to be ready
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.1892730Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.2023939Z starting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:27.2045076Z postgres service is starting, waiting 2 seconds before checking again.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:29.2042420Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:29.2165245Z starting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:29.2178524Z postgres service is starting, waiting 4 seconds before checking again.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:33.3327890Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:33.3452981Z starting
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:33.3468375Z postgres service is starting, waiting 8 seconds before checking again.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.6720448Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.6842793Z healthy
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.6860106Z postgres service is healthy.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.6860828Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7112423Z ##[group]Run actions/checkout@v4
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7112992Z with:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7113190Z   repository: minjae-488/OmniSeller-Desk
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7113581Z   token: ***
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7113759Z   ssh-strict: true
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7113937Z   ssh-user: git
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7114120Z   persist-credentials: true
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7114333Z   clean: true
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7114537Z   sparse-checkout-cone-mode: true
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7114787Z   fetch-depth: 1
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7114961Z   fetch-tags: false
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7115138Z   show-progress: true
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7115322Z   lfs: false
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7115478Z   submodules: false
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7115661Z   set-safe-directory: true
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.7116045Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8195175Z Syncing repository: minjae-488/OmniSeller-Desk
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8196416Z ##[group]Getting Git version info
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8196907Z Working directory is '/home/runner/work/OmniSeller-Desk/OmniSeller-Desk'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8197917Z [command]/usr/bin/git version
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8284791Z git version 2.52.0
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8311629Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8327154Z Temporarily overriding HOME='/home/runner/work/_temp/b51add44-5c00-42cd-b2e4-9c7e10edb43d' before making global git config changes
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8328724Z Adding repository directory to the temporary git global config as a safe directory
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8341216Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OmniSeller-Desk/OmniSeller-Desk
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8381586Z Deleting the contents of '/home/runner/work/OmniSeller-Desk/OmniSeller-Desk'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8385139Z ##[group]Initializing the repository
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8389798Z [command]/usr/bin/git init /home/runner/work/OmniSeller-Desk/OmniSeller-Desk
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8498297Z hint: Using 'master' as the name for the initial branch. This default branch name
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8499438Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8500172Z hint: to use in all of your new repositories, which will suppress this warning,
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8501207Z hint: call:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8501481Z hint:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8501811Z hint: 	git config --global init.defaultBranch <name>
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8502123Z hint:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8502424Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8503244Z hint: 'development'. The just-created branch can be renamed via this command:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8503887Z hint:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8504214Z hint: 	git branch -m <name>
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8504602Z hint:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8505161Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8506151Z Initialized empty Git repository in /home/runner/work/OmniSeller-Desk/OmniSeller-Desk/.git/
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8515500Z [command]/usr/bin/git remote add origin https://github.com/minjae-488/OmniSeller-Desk
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8628205Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8629359Z ##[group]Disabling automatic garbage collection
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8633081Z [command]/usr/bin/git config --local gc.auto 0
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8662283Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8662662Z ##[group]Setting up auth
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8669426Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.8699132Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.9034392Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.9062791Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.9285773Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.9314992Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.9545012Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.9578572Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.9579162Z ##[group]Fetching the repository
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:41.9586562Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bd24545e1113ce8e08fcc7c54ebc295e1b68cb5f:refs/remotes/origin/main
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1489653Z From https://github.com/minjae-488/OmniSeller-Desk
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1490451Z  * [new ref]         bd24545e1113ce8e08fcc7c54ebc295e1b68cb5f -> origin/main
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1524827Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1525685Z ##[group]Determining the checkout info
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1527947Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1533226Z [command]/usr/bin/git sparse-checkout disable
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1574579Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1600570Z ##[group]Checking out the ref
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1605141Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1714272Z Switched to a new branch 'main'
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1716489Z branch 'main' set up to track 'origin/main'.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1723996Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1762159Z [command]/usr/bin/git log -1 --format=%H
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.1785556Z bd24545e1113ce8e08fcc7c54ebc295e1b68cb5f
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.2065562Z ##[group]Run actions/setup-node@v4
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.2065842Z with:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.2066009Z   node-version: 20
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.2066186Z   cache: npm
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.2066397Z   cache-dependency-path: backend/package-lock.json
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.2066869Z   always-auth: false
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.2067172Z   check-latest: false
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.2067631Z   token: ***
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.2067993Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.3830066Z Found in cache @ /opt/hostedtoolcache/node/20.19.6/x64
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.3830889Z ##[group]Environment details
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.7164862Z node: v20.19.6
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.7165094Z npm: 10.8.2
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.7165259Z yarn: 1.22.22
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.7166214Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.7186714Z [command]/opt/hostedtoolcache/node/20.19.6/x64/bin/npm config get cache
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:42.8405290Z /home/runner/.npm
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.0136948Z Cache hit for: node-cache-Linux-x64-npm-c8cdb8a4ec312f7aa35b509f0e680bb6bc57f1e73bd4e935d55567604ddfe8d5
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.5059922Z Received 62778387 of 62778387 (100.0%), 138.3 MBs/sec
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.5060840Z Cache Size: ~60 MB (62778387 B)
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.5088210Z [command]/usr/bin/tar -xf /home/runner/work/_temp/1e4f3062-d34d-4e04-93c3-42fe678b9921/cache.tzst -P -C /home/runner/work/OmniSeller-Desk/OmniSeller-Desk --use-compress-program unzstd
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.6915849Z Cache restored successfully
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.7038816Z Cache restored from key: node-cache-Linux-x64-npm-c8cdb8a4ec312f7aa35b509f0e680bb6bc57f1e73bd4e935d55567604ddfe8d5
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.7209930Z ##[group]Run npm ci
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.7210193Z [36;1mnpm ci[0m
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.7253612Z shell: /usr/bin/bash -e {0}
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:43.7253871Z ##[endgroup]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:46.3951637Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:46.5828381Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:49.4365126Z 
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:49.4365690Z > backend@1.0.0 postinstall
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:49.4366203Z > prisma generate
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:49.4366440Z 
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.3556546Z Loaded Prisma config from prisma.config.ts.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.3557011Z 
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4421020Z Prisma schema loaded from prisma/schema.prisma.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4434998Z Error: Prisma schema validation - (get-config wasm)
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4437035Z Error code: P1012
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4439942Z error: The datasource property `url` is no longer supported in schema files. Move connection URLs for Migrate to `prisma.config.ts` and pass either `adapter` for a direct database connection or `accelerateUrl` for Accelerate to the `PrismaClient` constructor. See https://pris.ly/d/config-datasource and https://pris.ly/d/prisma7-client-config
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4442158Z   -->  prisma/schema.prisma:15
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4442687Z    | 
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4443067Z 14 |   provider = "postgresql"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4443617Z 15 |   url      = env("DATABASE_URL")
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4444028Z    | 
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4444219Z 
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4444430Z Validation Error Count: 1
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4444837Z [Context: getConfig]
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4445049Z 
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4445251Z Prisma CLI Version : 7.2.0
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4663631Z npm error code 1
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4664549Z npm error path /home/runner/work/OmniSeller-Desk/OmniSeller-Desk/backend
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4665432Z npm error command failed
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4666864Z npm error command sh -c prisma generate
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.4681174Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-12-30T12_05_43_787Z-debug-0.log
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.5070949Z ##[error]Process completed with exit code 1.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.5171590Z Post job cleanup.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6114076Z [command]/usr/bin/git version
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6150536Z git version 2.52.0
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6194487Z Temporarily overriding HOME='/home/runner/work/_temp/eb87acf1-c0e9-484f-83fe-bb9d20e0fe5a' before making global git config changes
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6195991Z Adding repository directory to the temporary git global config as a safe directory
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6208405Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OmniSeller-Desk/OmniSeller-Desk
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6242079Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6274310Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6504065Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6526319Z http.https://github.com/.extraheader
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6543968Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6579367Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6812961Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.6843984Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7155426Z Print service container logs: 1936975cda2a4198815354e4113a992b_postgres15_f65017
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7162499Z ##[command]/usr/bin/docker logs --details be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7279444Z  The files belonging to this database system will be owned by user "postgres".
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7281311Z  initdb: warning: enabling "trust" authentication for local connections
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7282413Z  initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7283688Z  2025-12-30 12:05:28.087 UTC [1] LOG:  starting PostgreSQL 15.15 (Debian 15.15-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7284369Z  2025-12-30 12:05:28.087 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7284877Z  2025-12-30 12:05:28.087 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7285371Z  2025-12-30 12:05:28.088 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7285878Z  2025-12-30 12:05:28.091 UTC [64] LOG:  database system was shut down at 2025-12-30 12:05:27 UTC
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7286347Z  2025-12-30 12:05:28.095 UTC [1] LOG:  database system is ready to accept connections
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7286747Z  2025-12-30 12:05:37.214 UTC [75] FATAL:  role "root" does not exist
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7287096Z  2025-12-30 12:05:47.299 UTC [83] FATAL:  role "root" does not exist
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7287683Z  This user must also own the server process.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7287939Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7288197Z  The database cluster will be initialized with locale "en_US.utf8".
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7288616Z  The default database encoding has accordingly been set to "UTF8".
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7289011Z  The default text search configuration will be set to "english".
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7289316Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7289493Z  Data page checksums are disabled.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7289716Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7289975Z  fixing permissions on existing directory /var/lib/postgresql/data ... ok
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7290333Z  creating subdirectories ... ok
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7290619Z  selecting dynamic shared memory implementation ... posix
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7290933Z  selecting default max_connections ... 100
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7291196Z  selecting default shared_buffers ... 128MB
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7291453Z  selecting default time zone ... Etc/UTC
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7291703Z  creating configuration files ... ok
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7291946Z  running bootstrap script ... ok
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7292206Z  performing post-bootstrap initialization ... ok
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7292480Z  syncing data to disk ... ok
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7292685Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7293082Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7293283Z  Success. You can now start the database server using:
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7293552Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7293758Z      pg_ctl -D /var/lib/postgresql/data -l logfile start
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7294022Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7294645Z  waiting for server to start....2025-12-30 12:05:27.780 UTC [48] LOG:  starting PostgreSQL 15.15 (Debian 15.15-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7296106Z  2025-12-30 12:05:27.780 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7296875Z  2025-12-30 12:05:27.783 UTC [51] LOG:  database system was shut down at 2025-12-30 12:05:27 UTC
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7297534Z  2025-12-30 12:05:27.787 UTC [48] LOG:  database system is ready to accept connections
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7297900Z   done
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7298056Z  server started
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7298229Z  CREATE DATABASE
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7298400Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7298553Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7298842Z  /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7299202Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7299646Z  2025-12-30 12:05:27.967 UTC [48] LOG:  received fast shutdown request
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7300105Z  waiting for server to shut down....2025-12-30 12:05:27.968 UTC [48] LOG:  aborting any active transactions
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7300687Z  2025-12-30 12:05:27.969 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7301140Z  2025-12-30 12:05:27.970 UTC [49] LOG:  shutting down
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7301475Z  2025-12-30 12:05:27.970 UTC [49] LOG:  checkpoint starting: shutdown immediate
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7302302Z  2025-12-30 12:05:27.989 UTC [49] LOG:  checkpoint complete: wrote 922 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.014 s, sync=0.003 s, total=0.019 s; sync files=301, longest=0.001 s, average=0.001 s; distance=4239 kB, estimate=4239 kB
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7303122Z  2025-12-30 12:05:27.995 UTC [48] LOG:  database system is shut down
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7303397Z   done
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7303561Z  server stopped
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7303733Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7303944Z  PostgreSQL init process complete; ready for start up.
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7304310Z  
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7310531Z Stop and remove container: 1936975cda2a4198815354e4113a992b_postgres15_f65017
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:50.7315140Z ##[command]/usr/bin/docker rm --force be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:51.3554303Z be6daf7ed72169013d242293e99ac8a6a1032f657119a55072659e3254bc4130
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:51.3588188Z Remove container network: github_network_1715fd9fea4b499691ae56f0eaab5b1b
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:51.3594582Z ##[command]/usr/bin/docker network rm github_network_1715fd9fea4b499691ae56f0eaab5b1b
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:51.4764496Z github_network_1715fd9fea4b499691ae56f0eaab5b1b
+build-and-test	UNKNOWN STEP	2025-12-30T12:05:51.4823177Z Cleaning up orphan processes

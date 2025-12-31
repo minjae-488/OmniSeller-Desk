@@ -1,0 +1,44 @@
+﻿build-and-test	Run Tests	癤?025-12-30T08:41:07.7837921Z ##[group]Run npm test
+build-and-test	Run Tests	2025-12-30T08:41:07.7838187Z [36;1mnpm test[0m
+build-and-test	Run Tests	2025-12-30T08:41:07.7872000Z shell: /usr/bin/bash -e {0}
+build-and-test	Run Tests	2025-12-30T08:41:07.7872231Z env:
+build-and-test	Run Tests	2025-12-30T08:41:07.7872708Z   DATABASE_URL: ***localhost:5432/omniseller_test
+build-and-test	Run Tests	2025-12-30T08:41:07.7872979Z   JWT_SECRET: ci-test-secret
+build-and-test	Run Tests	2025-12-30T08:41:07.7873192Z   JWT_EXPIRES_IN: 1d
+build-and-test	Run Tests	2025-12-30T08:41:07.7873366Z   NODE_ENV: test
+build-and-test	Run Tests	2025-12-30T08:41:07.7873535Z ##[endgroup]
+build-and-test	Run Tests	2025-12-30T08:41:07.9036054Z 
+build-and-test	Run Tests	2025-12-30T08:41:07.9036429Z > backend@1.0.0 test
+build-and-test	Run Tests	2025-12-30T08:41:07.9036817Z > jest
+build-and-test	Run Tests	2025-12-30T08:41:07.9036988Z 
+build-and-test	Run Tests	2025-12-30T08:41:10.3755246Z   console.log
+build-and-test	Run Tests	2025-12-30T08:41:10.3756835Z     [dotenv@17.2.3] injecting env (0) from .env -- tip: ?숋툘  enable debug logging with { debug: true }
+build-and-test	Run Tests	2025-12-30T08:41:10.3759178Z 
+build-and-test	Run Tests	2025-12-30T08:41:10.3759483Z       at _log (node_modules/dotenv/lib/main.js:142:11)
+build-and-test	Run Tests	2025-12-30T08:41:10.3759819Z 
+build-and-test	Run Tests	2025-12-30T08:41:10.3922181Z FAIL src/core/services/auth.service.test.ts
+build-and-test	Run Tests	2025-12-30T08:41:10.3923035Z   ??Test suite failed to run
+build-and-test	Run Tests	2025-12-30T08:41:10.3923447Z 
+build-and-test	Run Tests	2025-12-30T08:41:10.3923916Z     ??Missing required environment variables: PORT
+build-and-test	Run Tests	2025-12-30T08:41:10.3924662Z 
+build-and-test	Run Tests	2025-12-30T08:41:10.3924919Z     [0m [90m 34 |[39m
+build-and-test	Run Tests	2025-12-30T08:41:10.3925732Z      [90m 35 |[39m         [36mif[39m (missingKeys[33m.[39mlength [33m>[39m [35m0[39m) {
+build-and-test	Run Tests	2025-12-30T08:41:10.3926617Z     [31m[1m>[22m[39m[90m 36 |[39m             [36mthrow[39m [36mnew[39m [33mError[39m(
+build-and-test	Run Tests	2025-12-30T08:41:10.3927116Z      [90m    |[39m                   [31m[1m^[22m[39m
+build-and-test	Run Tests	2025-12-30T08:41:10.3928059Z      [90m 37 |[39m                 [32m`??Missing required environment variables: ${missingKeys.join(', ')}`[39m
+build-and-test	Run Tests	2025-12-30T08:41:10.3929010Z      [90m 38 |[39m             )[33m;[39m
+build-and-test	Run Tests	2025-12-30T08:41:10.3929641Z      [90m 39 |[39m         }[0m
+build-and-test	Run Tests	2025-12-30T08:41:10.3929957Z 
+build-and-test	Run Tests	2025-12-30T08:41:10.3930472Z       at ConfigService.validateInput (src/config/config.service.ts:36:19)
+build-and-test	Run Tests	2025-12-30T08:41:10.3931422Z       at new ConfigService (src/config/config.service.ts:13:14)
+build-and-test	Run Tests	2025-12-30T08:41:10.3932240Z       at Function.getInstance (src/config/config.service.ts:19:38)
+build-and-test	Run Tests	2025-12-30T08:41:10.3933059Z       at Object.<anonymous> (src/config/config.service.ts:70:37)
+build-and-test	Run Tests	2025-12-30T08:41:10.3933903Z       at Object.<anonymous> (src/core/services/auth.service.ts:3:1)
+build-and-test	Run Tests	2025-12-30T08:41:10.3934964Z       at Object.<anonymous> (src/core/services/auth.service.test.ts:1:1)
+build-and-test	Run Tests	2025-12-30T08:41:10.3935416Z 
+build-and-test	Run Tests	2025-12-30T08:41:10.3941681Z Test Suites: 1 failed, 1 total
+build-and-test	Run Tests	2025-12-30T08:41:10.3942123Z Tests:       0 total
+build-and-test	Run Tests	2025-12-30T08:41:10.3942486Z Snapshots:   0 total
+build-and-test	Run Tests	2025-12-30T08:41:10.3942834Z Time:        2.108 s
+build-and-test	Run Tests	2025-12-30T08:41:10.3943174Z Ran all test suites.
+build-and-test	Run Tests	2025-12-30T08:41:10.4435685Z ##[error]Process completed with exit code 1.

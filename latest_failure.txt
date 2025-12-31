@@ -1,0 +1,35 @@
+﻿build-and-test	Install dependencies	癤?025-12-31T04:34:09.0760832Z ##[group]Run npm ci
+build-and-test	Install dependencies	2025-12-31T04:34:09.0761108Z [36;1mnpm ci[0m
+build-and-test	Install dependencies	2025-12-31T04:34:09.0804243Z shell: /usr/bin/bash -e {0}
+build-and-test	Install dependencies	2025-12-31T04:34:09.0804505Z ##[endgroup]
+build-and-test	Install dependencies	2025-12-31T04:34:14.3776267Z npm error code EUSAGE
+build-and-test	Install dependencies	2025-12-31T04:34:14.3776624Z npm error
+build-and-test	Install dependencies	2025-12-31T04:34:14.3777542Z npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+build-and-test	Install dependencies	2025-12-31T04:34:14.3778229Z npm error
+build-and-test	Install dependencies	2025-12-31T04:34:14.3778674Z npm error Invalid: lock file's @prisma/client@7.2.0 does not satisfy @prisma/client@5.22.0
+build-and-test	Install dependencies	2025-12-31T04:34:14.3779258Z npm error Invalid: lock file's prisma@7.2.0 does not satisfy prisma@5.22.0
+build-and-test	Install dependencies	2025-12-31T04:34:14.3779886Z npm error Invalid: lock file's @prisma/engines@7.2.0 does not satisfy @prisma/engines@5.22.0
+build-and-test	Install dependencies	2025-12-31T04:34:14.3780521Z npm error Invalid: lock file's @prisma/debug@7.2.0 does not satisfy @prisma/debug@5.22.0
+build-and-test	Install dependencies	2025-12-31T04:34:14.3781571Z npm error Invalid: lock file's @prisma/engines-version@7.2.0-4.0c8ef2ce45c83248ab3df073180d5eda9e8be7a3 does not satisfy @prisma/engines-version@5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2
+build-and-test	Install dependencies	2025-12-31T04:34:14.3782851Z npm error Invalid: lock file's @prisma/fetch-engine@7.2.0 does not satisfy @prisma/fetch-engine@5.22.0
+build-and-test	Install dependencies	2025-12-31T04:34:14.3783930Z npm error Invalid: lock file's @prisma/get-platform@6.8.2 does not satisfy @prisma/get-platform@5.22.0
+build-and-test	Install dependencies	2025-12-31T04:34:14.3784361Z npm error
+build-and-test	Install dependencies	2025-12-31T04:34:14.3784602Z npm error Clean install a project
+build-and-test	Install dependencies	2025-12-31T04:34:14.3784831Z npm error
+build-and-test	Install dependencies	2025-12-31T04:34:14.3785021Z npm error Usage:
+build-and-test	Install dependencies	2025-12-31T04:34:14.3785211Z npm error npm ci
+build-and-test	Install dependencies	2025-12-31T04:34:14.3785395Z npm error
+build-and-test	Install dependencies	2025-12-31T04:34:14.3785592Z npm error Options:
+build-and-test	Install dependencies	2025-12-31T04:34:14.3786014Z npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+build-and-test	Install dependencies	2025-12-31T04:34:14.3787022Z npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+build-and-test	Install dependencies	2025-12-31T04:34:14.3788122Z npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+build-and-test	Install dependencies	2025-12-31T04:34:14.3788808Z npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+build-and-test	Install dependencies	2025-12-31T04:34:14.3789277Z npm error [--no-bin-links] [--no-fund] [--dry-run]
+build-and-test	Install dependencies	2025-12-31T04:34:14.3789755Z npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+build-and-test	Install dependencies	2025-12-31T04:34:14.3790307Z npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+build-and-test	Install dependencies	2025-12-31T04:34:14.3790641Z npm error
+build-and-test	Install dependencies	2025-12-31T04:34:14.3790971Z npm error aliases: clean-install, ic, install-clean, isntall-clean
+build-and-test	Install dependencies	2025-12-31T04:34:14.3791303Z npm error
+build-and-test	Install dependencies	2025-12-31T04:34:14.3791546Z npm error Run "npm help ci" for more info
+build-and-test	Install dependencies	2025-12-31T04:34:14.3792415Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-12-31T04_34_09_143Z-debug-0.log
+build-and-test	Install dependencies	2025-12-31T04:34:14.4003516Z ##[error]Process completed with exit code 1.
