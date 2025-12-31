@@ -1,242 +1,354 @@
-# 🚀 백엔드 배포 가이드 (Railway)
+# 배포 가이드 (Deployment Guide)
 
-## 📋 사전 준비
+OmniSeller-Desk 프로젝트의 배포 가이드입니다.
 
-1. **Railway 계정 생성**
-   - https://railway.app 접속
-   - GitHub 계정으로 로그인
+## 📋 목차
 
-2. **GitHub 저장소 연결**
-   - Railway 대시보드에서 "New Project" 클릭
-   - "Deploy from GitHub repo" 선택
-   - `OmniSeller-Desk` 저장소 선택
-
----
-
-## 🗄️ PostgreSQL 데이터베이스 추가
-
-1. **프로젝트에서 "New" 클릭**
-2. **"Database" → "Add PostgreSQL" 선택**
-3. **자동으로 `DATABASE_URL` 환경변수 생성됨**
+- [배포 아키텍처](#배포-아키텍처)
+- [백엔드 배포 (Railway)](#백엔드-배포-railway)
+- [프론트엔드 배포 (GitHub Pages)](#프론트엔드-배포-github-pages)
+- [환경변수 설정](#환경변수-설정)
+- [배포 확인](#배포-확인)
+- [트러블슈팅](#트러블슈팅)
 
 ---
 
-## ⚙️ 환경변수 설정
+## 🏗️ 배포 아키텍처
 
-Railway 프로젝트 설정에서 다음 환경변수를 추가하세요:
+```
+┌─────────────────────────────────────────────────────────┐
+│                    GitHub Repository                     │
+│                  minjae-488/OmniSeller-Desk             │
+└────────────┬────────────────────────────┬───────────────┘
+             │                            │
+             │ (push to main)             │ (push to main)
+             │                            │
+             ▼                            ▼
+    ┌────────────────┐          ┌──────────────────┐
+    │   Railway      │          │  GitHub Actions  │
+    │   (Backend)    │◄─────────│  (Frontend CI)   │
+    │                │          │                  │
+    │ PostgreSQL DB  │          │  Build & Deploy  │
+    └────────────────┘          └──────────────────┘
+             │                            │
+             │ API Endpoint               │ Static Files
+             │                            │
+             ▼                            ▼
+    https://web-production-    https://minjae-488.github.io/
+    90967.up.railway.app       OmniSeller-Desk/
+```
 
-### 필수 환경변수
+---
 
-```bash
+## 🚀 백엔드 배포 (Railway)
+
+### 1. Railway 프로젝트 생성
+
+1. [Railway](https://railway.app) 접속 및 로그인
+2. "New Project" 클릭
+3. "Deploy from GitHub repo" 선택
+4. `minjae-488/OmniSeller-Desk` 저장소 선택
+
+### 2. 서비스 설정
+
+#### Root Directory 설정
+- **Settings** → **Root Directory**: `backend`
+
+#### 환경변수 설정
+**Variables** 탭에서 다음 환경변수 추가:
+
+```env
+# Database (Railway PostgreSQL)
+DATABASE_URL=postgresql://postgres:password@postgres.railway.internal:5432/railway
+
+# JWT 설정
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_EXPIRES_IN=7d
+
 # 서버 설정
 PORT=4000
 NODE_ENV=production
-
-# 데이터베이스 (자동 생성됨)
-DATABASE_URL=${{Postgres.DATABASE_URL}}
-
-# JWT 보안
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-JWT_EXPIRES_IN=7d
 ```
 
-### 환경변수 설정 방법
+> **⚠️ 중요**: `JWT_SECRET`은 반드시 안전한 랜덤 문자열로 변경하세요!
 
-1. Railway 프로젝트 대시보드 열기
-2. 서비스 선택 → "Variables" 탭
-3. 위의 환경변수들을 하나씩 추가
-4. `DATABASE_URL`은 PostgreSQL 서비스와 자동 연결됨
+#### PostgreSQL 데이터베이스 추가
+1. Railway 프로젝트에서 **"+ New"** 클릭
+2. **"Database"** → **"Add PostgreSQL"** 선택
+3. 자동으로 `DATABASE_URL` 환경변수가 생성됩니다
+4. 백엔드 서비스에서 이 변수를 참조하도록 설정
 
----
+### 3. 배포 설정 파일
 
-## 📦 배포 설정
+프로젝트 루트에 `railway.json` 파일이 이미 생성되어 있습니다:
 
-### 1. Root Directory 설정
-
-Railway 프로젝트 설정에서:
-- **Settings** → **Root Directory** → `backend` 입력
-
-### 2. Build Command (자동 감지됨)
-
-```bash
-npm ci && npx prisma generate && npm run build
-```
-
-### 3. Start Command (자동 감지됨)
-
-```bash
-npx prisma migrate deploy && npm start
-```
-
----
-
-## 🚀 배포 실행
-
-1. **자동 배포**
-   - `main` 브랜치에 푸시하면 자동으로 배포됨
-   - Railway가 자동으로 빌드 및 배포 진행
-
-2. **수동 배포**
-   - Railway 대시보드에서 "Deploy" 버튼 클릭
-
-3. **배포 로그 확인**
-   - "Deployments" 탭에서 실시간 로그 확인
-
----
-
-## 🔗 배포 URL 확인
-
-1. **Railway 대시보드**에서 "Settings" 탭
-2. **"Generate Domain"** 클릭
-3. 생성된 URL 복사 (예: `https://omniseller-desk-production.up.railway.app`)
-
----
-
-## 🧪 배포 테스트
-
-### Health Check
-
-```bash
-curl https://your-app.up.railway.app
-```
-
-**예상 응답:**
 ```json
 {
-  "message": "OmniSeller Desk API Server is running! 🚀",
-  "timestamp": "2025-12-31T..."
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "cd backend && npm ci && npm run build"
+  },
+  "deploy": {
+    "startCommand": "cd backend && npm start",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+  }
 }
 ```
 
-### 회원가입 테스트
+### 4. 자동 배포
 
-```bash
-curl -X POST https://your-app.up.railway.app/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "test@example.com",
-    "password": "password123",
-    "name": "Test User"
-  }'
-```
+- `main` 브랜치에 푸시하면 자동으로 Railway가 배포를 시작합니다
+- **Deployments** 탭에서 배포 상태를 확인할 수 있습니다
+- **Logs** 탭에서 실시간 로그를 확인할 수 있습니다
+
+### 5. 배포 URL
+
+배포 완료 후 다음 URL에서 API에 접근할 수 있습니다:
+- **Production URL**: `https://web-production-90967.up.railway.app`
+- **Health Check**: `https://web-production-90967.up.railway.app/`
 
 ---
 
-## 🔧 프론트엔드 연결
+## 🌐 프론트엔드 배포 (GitHub Pages)
 
-배포된 백엔드 URL을 프론트엔드에 연결:
+### 1. GitHub Pages 설정
 
-### 1. 프론트엔드 환경변수 업데이트
+1. GitHub 저장소 → **Settings** → **Pages**
+2. **Source**: GitHub Actions 선택
+3. 자동으로 `.github/workflows/deploy-frontend.yml` 워크플로우가 실행됩니다
 
-`frontend/.env.local`:
-```bash
-NEXT_PUBLIC_API_URL=https://your-app.up.railway.app
-```
+### 2. 배포 워크플로우
 
-### 2. GitHub Pages 배포 시
-
-`.github/workflows/deploy-frontend.yml`에 환경변수 추가:
+`.github/workflows/deploy-frontend.yml` 파일이 자동 배포를 담당합니다:
 
 ```yaml
-- name: Build with Next.js
-  run: npm run build
-  env:
-    NODE_ENV: production
-    NEXT_PUBLIC_API_URL: https://your-app.up.railway.app
+name: Deploy Frontend to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - 'frontend/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build with Next.js
+        run: npm run build
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_API_URL: https://web-production-90967.up.railway.app
+```
+
+### 3. Next.js 정적 Export 설정
+
+`frontend/next.config.ts`:
+
+```typescript
+const nextConfig: NextConfig = {
+  output: 'export',
+  basePath: '/OmniSeller-Desk',
+  images: {
+    unoptimized: true,
+  },
+};
+```
+
+### 4. 자동 배포
+
+- `frontend/` 디렉토리의 변경사항을 `main` 브랜치에 푸시하면 자동 배포
+- **Actions** 탭에서 배포 상태 확인 가능
+
+### 5. 배포 URL
+
+- **Production URL**: `https://minjae-488.github.io/OmniSeller-Desk/`
+
+---
+
+## 🔐 환경변수 설정
+
+### 백엔드 (Railway)
+
+| 변수명 | 설명 | 예시 |
+|--------|------|------|
+| `DATABASE_URL` | PostgreSQL 연결 URL | `postgresql://user:pass@host:5432/db` |
+| `JWT_SECRET` | JWT 토큰 서명 키 | `your-secret-key` |
+| `JWT_EXPIRES_IN` | JWT 토큰 만료 시간 | `7d` |
+| `PORT` | 서버 포트 | `4000` |
+| `NODE_ENV` | 실행 환경 | `production` |
+
+### 프론트엔드 (GitHub Actions)
+
+| 변수명 | 설명 | 설정 위치 |
+|--------|------|----------|
+| `NEXT_PUBLIC_API_URL` | 백엔드 API URL | `.github/workflows/deploy-frontend.yml` |
+
+**로컬 개발 환경** (`frontend/.env.local`):
+```env
+NEXT_PUBLIC_API_URL=http://localhost:4000
 ```
 
 ---
 
-## 🐛 트러블슈팅
+## ✅ 배포 확인
 
-### 1. 빌드 실패
+### 백엔드 확인
 
-**증상**: `prisma generate` 실패
-**해결**: 
-- `package.json`의 `postinstall` 스크립트 확인
-- Railway 로그에서 정확한 에러 메시지 확인
+1. **Health Check**:
+   ```bash
+   curl https://web-production-90967.up.railway.app/
+   ```
+   
+   예상 응답:
+   ```json
+   {
+     "message": "OmniSeller Desk API Server is running! 🚀",
+     "timestamp": "2025-01-30T04:35:37.882Z"
+   }
+   ```
 
-### 2. 데이터베이스 연결 실패
+2. **회원가입 테스트**:
+   ```bash
+   curl -X POST https://web-production-90967.up.railway.app/auth/register \
+     -H "Content-Type: application/json" \
+     -d '{
+       "email": "test@example.com",
+       "password": "Test1234!",
+       "name": "Test User"
+     }'
+   ```
 
+### 프론트엔드 확인
+
+1. 브라우저에서 `https://minjae-488.github.io/OmniSeller-Desk/` 접속
+2. 로그인/회원가입 페이지 확인
+3. 개발자 도구 → Network 탭에서 API 요청 확인
+
+---
+
+## 🔧 트러블슈팅
+
+### Railway 배포 실패
+
+#### 1. Prisma 스키마 오류
+**증상**: `Prisma schema validation - Error code: P1012`
+
+**해결**:
+- Prisma 버전을 5.x로 다운그레이드 (이미 적용됨)
+- `backend/package.json`:
+  ```json
+  {
+    "dependencies": {
+      "@prisma/client": "^5.22.0"
+    },
+    "devDependencies": {
+      "prisma": "^5.22.0"
+    }
+  }
+  ```
+
+#### 2. TypeScript 경로 별칭 오류
+**증상**: `Cannot find module '@/utils/logger'`
+
+**해결**:
+- `tsc-alias`를 사용하여 빌드 시 경로 변환 (이미 적용됨)
+- `backend/package.json`:
+  ```json
+  {
+    "scripts": {
+      "build": "tsc && tsc-alias"
+    },
+    "devDependencies": {
+      "tsc-alias": "^1.8.16"
+    }
+  }
+  ```
+
+#### 3. DATABASE_URL 연결 실패
 **증상**: `Can't reach database server`
+
 **해결**:
-- PostgreSQL 서비스가 실행 중인지 확인
-- `DATABASE_URL` 환경변수가 올바른지 확인
+1. Railway PostgreSQL 서비스가 실행 중인지 확인
+2. `DATABASE_URL` 환경변수가 올바른지 확인
+3. Railway 내부 네트워크 주소 사용: `postgres.railway.internal`
 
-### 3. 마이그레이션 실패
+### GitHub Pages 배포 실패
 
-**증상**: `prisma migrate deploy` 실패
+#### 1. 404 에러
+**증상**: 페이지 접속 시 404 오류
+
 **해결**:
-```bash
-# Railway CLI 설치
-npm i -g @railway/cli
+- `frontend/public/.nojekyll` 파일 존재 확인
+- `basePath` 설정 확인: `/OmniSeller-Desk`
 
-# Railway 로그인
-railway login
+#### 2. API 연결 실패
+**증상**: 로그인/회원가입 실패
 
-# 프로젝트 연결
-railway link
-
-# 마이그레이션 수동 실행
-railway run npx prisma migrate deploy
-```
+**해결**:
+1. 브라우저 개발자 도구 → Console 확인
+2. CORS 오류 확인
+3. `NEXT_PUBLIC_API_URL`이 올바른지 확인
+4. Railway 백엔드가 실행 중인지 확인
 
 ---
 
-## 📊 모니터링
+## 📝 배포 체크리스트
 
-### Railway 대시보드
+### 백엔드 배포 전
 
-- **Metrics**: CPU, 메모리, 네트워크 사용량
-- **Logs**: 실시간 애플리케이션 로그
-- **Deployments**: 배포 히스토리
-
-### 로그 확인
-
-```bash
-# Railway CLI로 로그 확인
-railway logs
-```
-
----
-
-## 💰 비용
-
-- **무료 티어**: $5 크레딧/월 (취미 프로젝트 충분)
-- **Hobby Plan**: $5/월 (더 많은 리소스)
-- **Pro Plan**: $20/월 (프로덕션 환경)
-
----
-
-## 🔄 CI/CD 자동화
-
-Railway는 GitHub와 자동 연동되어:
-- `main` 브랜치 푸시 시 자동 배포
-- PR 생성 시 Preview 환경 자동 생성
-- 배포 실패 시 자동 롤백
-
----
-
-## 📝 체크리스트
-
-배포 전 확인사항:
-
-- [ ] Railway 계정 생성
-- [ ] GitHub 저장소 연결
-- [ ] PostgreSQL 데이터베이스 추가
-- [ ] 환경변수 설정 (PORT, NODE_ENV, JWT_SECRET 등)
+- [ ] `DATABASE_URL` 환경변수 설정
+- [ ] `JWT_SECRET` 안전한 값으로 변경
+- [ ] PostgreSQL 데이터베이스 생성
 - [ ] Root Directory를 `backend`로 설정
-- [ ] 도메인 생성
-- [ ] Health Check 테스트
-- [ ] 프론트엔드 API URL 업데이트
+
+### 프론트엔드 배포 전
+
+- [ ] `NEXT_PUBLIC_API_URL`을 Railway URL로 설정
+- [ ] `basePath` 설정 확인
+- [ ] `.nojekyll` 파일 존재 확인
+
+### 배포 후
+
+- [ ] 백엔드 Health Check 확인
+- [ ] 프론트엔드 페이지 접속 확인
+- [ ] 회원가입/로그인 기능 테스트
+- [ ] 상품 관리 기능 테스트
 
 ---
 
-## 🎉 완료!
+## 🔄 업데이트 방법
 
-백엔드가 성공적으로 배포되었습니다!
+### 코드 변경 후 배포
 
-**다음 단계**:
-1. 프론트엔드 환경변수 업데이트
-2. GitHub Pages 재배포
-3. 전체 플로우 테스트 (회원가입 → 로그인 → 상품 관리)
+1. 변경사항 커밋:
+   ```bash
+   git add .
+   git commit -m "feat: 새로운 기능 추가"
+   ```
+
+2. `main` 브랜치에 푸시:
+   ```bash
+   git push origin main
+   ```
+
+3. 자동 배포 확인:
+   - **Railway**: Deployments 탭
+   - **GitHub Pages**: Actions 탭
+
+---
+
+## 📞 지원
+
+배포 관련 문제가 발생하면:
+1. Railway Logs 확인
+2. GitHub Actions 로그 확인
+3. 이 문서의 트러블슈팅 섹션 참조
+
+---
+
+**마지막 업데이트**: 2025-01-30  
+**배포 상태**: ✅ 프로덕션 운영 중
