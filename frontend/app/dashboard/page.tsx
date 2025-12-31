@@ -80,13 +80,20 @@ export default function DashboardPage() {
                         {/* 기능 안내 카드 */}
                         <div className="bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-xl">
                             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                                다음 단계
+                                빠른 메뉴
                             </h3>
-                            <ul className="space-y-2 text-gray-700">
-                                <li>✅ 인증 시스템 구현 완료</li>
-                                <li>🔜 상품 관리 기능 개발 예정</li>
-                                <li>🔜 대시보드 통계 추가 예정</li>
-                            </ul>
+                            <div className="space-y-3">
+                                <button
+                                    onClick={() => router.push('/products')}
+                                    className="w-full px-4 py-3 bg-white text-left rounded-lg hover:bg-gray-50 transition shadow-sm"
+                                >
+                                    <span className="text-lg mr-2">📦</span>
+                                    <span className="font-medium text-gray-900">상품 관리</span>
+                                </button>
+                                <div className="px-4 py-2 bg-white/50 rounded-lg">
+                                    <span className="text-sm text-gray-600">더 많은 기능 개발 중...</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
