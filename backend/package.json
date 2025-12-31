@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
-    "build": "tsc",
-    "start": "node -r tsconfig-paths/register dist/server.js",
+    "build": "tsc && tsc-alias",
+    "start": "node dist/server.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -27,8 +27,7 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
-    "winston": "^3.19.0",
-    "tsconfig-paths": "^4.2.0"
+    "winston": "^3.19.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -46,6 +45,7 @@
     "supertest": "^7.1.4",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
     "typescript": "^5.9.3"
   }
 }
