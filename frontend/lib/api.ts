@@ -87,6 +87,31 @@ export interface UpdateProductData {
     imageUrl?: string;
 }
 
+// 검색 파라미터 타입
+export interface SearchProductParams {
+    search?: string;
+    category?: string;
+    minPrice?: number;
+    maxPrice?: number;
+    stockFilter?: 'inStock' | 'outOfStock' | 'all';
+    sortBy?: 'name' | 'price' | 'stock' | 'createdAt';
+    sortOrder?: 'asc' | 'desc';
+    page?: number;
+    limit?: number;
+}
+
+// 검색 응답 타입
+export interface SearchProductResponse {
+    data: Product[];
+    meta: {
+        total: number;
+        page: number;
+        limit: number;
+        totalPages: number;
+    };
+    message: string;
+}
+
 // 상품 API
 export const productAPI = {
     getAll: async () => {
@@ -111,6 +136,12 @@ export const productAPI = {
 
     delete: async (id: string) => {
         const response = await api.delete(`/products/${id}`);
+        return response.data;
+    },
+
+    // 검색 및 필터링
+    search: async (params: SearchProductParams): Promise<SearchProductResponse> => {
+        const response = await api.get('/products/search', { params });
         return response.data;
     },
 };

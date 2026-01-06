@@ -82,7 +82,13 @@ graph TD
 - **Real-time Analyze**: 매입가, 판매가, 마켓별 수수료를 즉시 분석하여 정확한 순이익을 계산.
 - **Profit Alert**: 목표 마진율 미달 시 경고 알림 제공.
 
-### 3️⃣ Secure Authentication (강력한 보안 인증)
+### 3️⃣ Advanced Product Search & Filtering (고급 상품 검색 및 필터링)
+- **Smart Search**: 상품명과 설명에서 대소문자 구분 없이 검색 가능.
+- **Multi-Filter**: 카테고리, 가격 범위, 재고 상태 등 다양한 조건으로 필터링.
+- **Flexible Sorting**: 이름, 가격, 재고, 생성일 기준으로 오름차순/내림차순 정렬.
+- **Pagination**: 효율적인 페이지네이션으로 대량 데이터 처리.
+
+### 4️⃣ Secure Authentication (강력한 보안 인증)
 - **JWT & Encryption**: `Bcrypt`를 이용한 비밀번호 암호화 및 `JWT` 기반의 Stateless 인증 시스템.
 - **Safe Architecture**: 민감 정보는 철저히 서버 사이드 환경변수로 관리 및 암호화 저장.
 
@@ -112,6 +118,7 @@ graph TD
 ## 🔗 Links
 
 - [📄 MVP 개발 작업 목록](./docs/MVP_TASKS.md)
+- [🔍 상품 검색 & 필터링 API 문서](./backend/docs/PRODUCT_SEARCH_API.md)
 - [📏 TDD 규칙](./.agent/rules/tdd.md)
 - [🏗️ SOLID 원칙](./.agent/rules/solid.md)
 

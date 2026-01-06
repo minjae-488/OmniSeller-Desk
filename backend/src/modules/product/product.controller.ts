@@ -3,6 +3,7 @@ import { AuthRequest } from '../../core/interfaces/auth.interface';
 import { productService } from './product.service';
 import { CreateProductDto } from './dtos/create-product.dto';
 import { UpdateProductDto } from './dtos/update-product.dto';
+import { SearchProductDto } from './dtos/search-product.dto';
 
 export class ProductController {
     // 모든 상품 조회
@@ -78,6 +79,28 @@ export class ProductController {
 
             res.status(200).json({
                 message: 'deleted',
+            });
+        } catch (error) {
+            next(error);
+        }
+    };
+
+    // 상품 검색 및 필터링
+    public search = async (req: AuthRequest, res: Response, next: NextFunction) => {
+        try {
+            const userId = req.user!.userId;
+            const searchDto: SearchProductDto = req.query;
+            const result = await productService.searchProducts(userId, searchDto);
+
+            res.status(200).json({
+                data: result.data,
+                meta: {
+                    total: result.total,
+                    page: result.page,
+                    limit: result.limit,
+                    totalPages: result.totalPages,
+                },
+                message: 'success',
             });
         } catch (error) {
             next(error);

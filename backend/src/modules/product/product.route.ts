@@ -5,6 +5,7 @@ import { authMiddleware } from '../../core/middlewares/auth.middleware';
 import { validationMiddleware } from '../../core/middlewares/validation.middleware';
 import { CreateProductDto } from './dtos/create-product.dto';
 import { UpdateProductDto } from './dtos/update-product.dto';
+import { SearchProductDto } from './dtos/search-product.dto';
 
 export class ProductRoute implements Routes {
     public path = '/products';
@@ -16,6 +17,14 @@ export class ProductRoute implements Routes {
     }
 
     private initializeRoutes() {
+        // 검색 라우트 (/:id보다 먼저 등록해야 함)
+        this.router.get(
+            `${this.path}/search`,
+            authMiddleware,
+            validationMiddleware(SearchProductDto, true, 'query'),
+            this.productController.search
+        );
+
         // 모든 라우트에 인증 필요
         this.router.get(`${this.path}`, authMiddleware, this.productController.getAll);
         this.router.get(`${this.path}/:id`, authMiddleware, this.productController.getOne);

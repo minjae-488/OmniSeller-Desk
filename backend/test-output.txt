@@ -1,0 +1,59 @@
+﻿node.exe : FAIL src/modules
+/product/__tests__/product.
+service.search.test.ts
+위치 줄:1 문자:1
++ & "C:\Program Files\nodej
+s/node.exe" "C:\Program Fil
+es\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (FAI  
+  L src/module....search   
+ .test.ts:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+  ??Test suite failed to ru
+n
+
+    [96msrc/modules/produc
+t/__tests__/product.service
+.search.test.ts[0m:[93m13
+3[0m:[93m19[0m - [91mer
+ror[0m[90m TS6133: [0m'r
+esult' is declared but its 
+value is never read.
+
+    [7m133[0m            
+ const result = await produ
+ctService.searchProducts(mo
+ckUserId, searchDto);
+    [7m   [0m [91m      
+            ~~~~~~[0m
+    [96msrc/modules/produc
+t/__tests__/product.service
+.search.test.ts[0m:[93m15
+3[0m:[93m19[0m - [91mer
+ror[0m[90m TS6133: [0m'r
+esult' is declared but its 
+value is never read.
+
+    [7m153[0m            
+ const result = await produ
+ctService.searchProducts(mo
+ckUserId, searchDto);
+    [7m   [0m [91m      
+            ~~~~~~[0m
+
+Test Suites: 1 failed, 1 to
+tal
+Tests:       0 total
+Snapshots:   0 total
+Time:        2.77 s
+Ran all test suites matchin
+g src/modules/product/__tes
+ts__/product.service.search
+.test.ts.

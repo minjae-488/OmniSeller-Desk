@@ -1,0 +1,135 @@
+﻿
+> backend@1.0.0 test
+> jest
+
+node.exe : PASS src/modules
+/auth/__tests__/auth.servic
+e.test.ts
+위치 줄:1 문자:1
++ & "C:\Program Files\nodej
+s/node.exe" "C:\Program Fil
+es\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (PAS  
+  S src/module...service   
+ .test.ts:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+  AuthService
+    register
+      ??should successfully
+ register a new user (7 ms)
+      ??should throw HttpEx
+ception when email already 
+exists (9 ms)
+    login
+      ??should successfully
+ login with valid credentia
+ls (3 ms)
+      ??should throw HttpEx
+ception when user does not 
+exist (2 ms)
+      ??should throw HttpEx
+ception when password is in
+valid (1 ms)
+      ??should return token
+ and user without password 
+field (2 ms)
+
+PASS src/core/services/__te
+sts__/auth.service.test.ts
+  AuthService (Core)
+    hashPassword
+      ??should hash passwor
+d with bcrypt (7 ms)
+      ??should use saltRoun
+ds of 10
+      ??should return diffe
+rent hashes for same passwo
+rd (due to salt)
+    comparePassword
+      ??should return true 
+when passwords match
+      ??should return false
+ when passwords do not matc
+h (1 ms)
+    generateToken
+      ??should generate JWT
+ token with correct payload
+ (1 ms)
+      ??should use JWT secr
+et from config (1 ms)
+      ??should set expirati
+on time from config
+    verifyToken
+      ??should successfully
+ verify valid token (1 ms)
+      ??should throw error 
+when token is invalid (14 m
+s)
+      ??should throw error 
+when token is expired (2 ms
+)
+      ??should throw error 
+when signature is invalid (
+1 ms)
+      ??should use JWT secr
+et from config for verifica
+tion
+
+  console.log
+    [dotenv@17.2.3] injecting env (0) from .env -- tip: ?뫁 sync secrets across teammates & machines: https://dotenvx.com/ops
+
+      at _log (node_modules/dotenv/lib/main.js:142:11)
+
+FAIL src/core/middlewares/_
+_tests__/auth.middleware.te
+st.ts
+  ??Test suite failed to ru
+n
+
+    [96msrc/core/middlewar
+es/__tests__/auth.middlewar
+e.test.ts[0m:[93m1[0m:[
+93m10[0m - [91merror[0m
+[90m TS6133: [0m'Request' 
+is declared but its value i
+s never read.
+
+    [7m1[0m import { Requ
+est, Response, NextFunction
+ } from 'express';
+    [7m [0m [91m        
+ ~~~~~~~[0m
+
+PASS src/core/services/auth
+.service.test.ts
+  AuthService
+    Password Hashing
+      ??should hash a passw
+ord (136 ms)
+      ??should compare a co
+rrect password (105 ms)
+      ??should fail compari
+ng an incorrect password (1
+06 ms)
+    JWT Management
+      ??should generate a t
+oken (6 ms)
+      ??should verify a val
+id token (2 ms)
+      ??should throw error 
+for invalid token (14 ms)
+
+Test Suites: 1 failed, 3 pa
+ssed, 4 total
+Tests:       25 passed, 25 
+total
+Snapshots:   0 total
+Time:        4.001 s
+Ran all test suites.
